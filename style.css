@@ -1,0 +1,39 @@
+body {
+  background-color: #010165;
+  color: white;
+  font-family: sans-serif;
+}
+.door{
+  cursor: pointer;
+  padding: 10px;
+}
+.container{
+  width: 100%;
+  height: 600px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 143px 143px 143px;
+  grid-template-rows: auto auto;
+}
+.choredoor{
+  grid-column: 1/ span 3;
+}
+#start{
+  width: 140px;
+  height: 70px;
+  justify-content: center;
+  background: rgb(255, 255, 144);
+  font-weight: bold;
+}
+.score, .highestScore{
+  margin-left: 40px;
+}
+#score, #highestScore{
+  height: 50px;
+  width: 50px;
+  border: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+}
