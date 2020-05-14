@@ -20,10 +20,12 @@ door1.onclick = function(){
   // cant use to compare with other image path
   // url will solve it
   let url = new URL(door1.src);
-  // url.pathname = /images/closed_door
+  // url.pathname = /images/closed_door if close
+  // url.pathname = /images/robot if door is open and is robot door 
   url = "." + url.pathname;
   if(!isClicked(url) && isPlaying){
     door1.src = randomDoor1;
+  // door1.src = "http://127.0.0.1:8080/images/robot" if randomDoor1 is robot
     let url2 = new URL(door1.src);
     url2 = "." + url2.pathname;
     click(url2);
@@ -77,19 +79,23 @@ endGame = function(status){
   if(status === 'win') {
     startButton.textContent = 'Win !!!!! Play again ?';
 
+    // if win, score +1
     score++;
     currentScore.textContent = score;
+    // set highest score if current score > current highest score
     if(score > highest){
       highest++;
       highestScore.textContent = highest;
     }
   } else {
     startButton.textContent = 'Oh no, bad luck !!!!! Play again ?';
+    // set score =  0 if lose
     score = 0;
     currentScore.textContent = score;
   }
 }
 startButton.onclick = function(){
+  // if lose or win, click button to play again
   if(!isPlaying){
     gameStart();
   }
@@ -98,6 +104,7 @@ gameStart = function(){
   makeDoorRandom();
   isPlaying = true;
   numberOfClick = 3;
+  // set door close for new game
   door1.src = close;
   door2.src = close;
   door3.src = close;
